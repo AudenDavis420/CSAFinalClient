@@ -5,9 +5,11 @@ public class Main
 {
     public static void main(String[] args) throws IOException, InterruptedException 
     {
+        System.out.println("david test");
         Player player = new Player(1);
         
         MoveRequest request = new MoveRequest(1,0 , 1, 1, "move");
         System.out.println(Client.makeMove("localhost", player,request));
+        
     }
 }
