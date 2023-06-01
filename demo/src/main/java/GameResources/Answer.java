@@ -1,5 +1,7 @@
 package GameResources;
 
+
+
 //@Author Auden
 
 public class Answer {
@@ -14,5 +16,8 @@ public class Answer {
     public boolean getResponse(){return response;}
     public void setResponse(boolean Response){response = Response;}
 
-    
+    public String toString()
+    {
+        return "Answer: " + response;
+    }
 }
