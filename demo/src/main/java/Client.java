@@ -62,11 +62,12 @@ public class Client
     public static Answer makeMove(String ip, Player player, MoveRequest moveRequest) throws IOException, InterruptedException
     {
         HttpRequest request = HttpRequest.newBuilder()
-            .uri(URI.create("http://"+ ip + ":8080/gameMap/1"))
+            .uri(URI.create("http://"+ ip + ":8080/makeMove/1"))
+            .header("Content-Type", "application/json")
             .POST(HttpRequest.BodyPublishers.ofString(gson.toJson(moveRequest)))
             .build();
-
-
+        
+        System.out.println(moveRequest);
         System.out.println(gson.toJson(moveRequest));
 
             HttpResponse<String> response = HttpClient.newBuilder()
