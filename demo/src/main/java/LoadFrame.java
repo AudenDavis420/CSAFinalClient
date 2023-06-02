@@ -12,7 +12,7 @@ public class LoadFrame extends JFrame
         JLabel title = new JLabel();
         title.setBounds(50, 50, 100, 100);
         title.setText("Clash of Pixels");
-        t
+        
 
         this.add(title);
 

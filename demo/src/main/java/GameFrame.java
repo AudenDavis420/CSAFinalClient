@@ -9,9 +9,10 @@ public class GameFrame extends JFrame
     Player localPlayer;
     Game game;
     
-    public GameFrame(Player LocalPlayer) throws IOException, InterruptedException
+    public GameFrame(Player LocalPlayer, String IpAddress) throws IOException, InterruptedException
     {
         localPlayer = LocalPlayer;
+        ipAddress = IpAddress;
         game = Client.getMap(ipAddress, LocalPlayer);
 
     }
