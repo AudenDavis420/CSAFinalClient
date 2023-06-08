@@ -22,8 +22,7 @@ public class GameFrame extends JFrame
     
     public GameFrame(Player LocalPlayer, String IpAddress) throws IOException, InterruptedException
     {
-        localPlayer = LocalPlayer;
-        ipAddress = IpAddress;
+        
         game = Client.getMap(ipAddress, LocalPlayer);
         count=0;
         GameSquare[][] board=game.getBoard();
@@ -179,7 +178,7 @@ public class GameFrame extends JFrame
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                int sx=0;
+                int sx=1  ;
                 int sy=0;
                 int gx=0;
                 int gy=0;
