@@ -113,7 +113,7 @@ public class GameFrame extends JFrame
         JTextArea sY=new JTextArea("enter start Y");
         JTextArea gX=new JTextArea("enter goal X");
         JTextArea gY=new JTextArea("enter goal Y");
-        JTextArea moveType=new JTextArea("enter move type");
+      
         frame.add(sX);
         frame.add(move);
         frame.add(attack);
@@ -127,19 +127,73 @@ public class GameFrame extends JFrame
                frame.add(sY);
                frame.add(gX);
                frame.add(gY);
-               frame.add(moveType);
+            
 
                int sx=Integer.parseInt(sX.getText());
                int sy=Integer.parseInt(sY.getText());
                int gx=Integer.parseInt(gX.getText());
                int gy=Integer.parseInt(gY.getText());
-               String movetype=moveType.getText();
+               String movetype="move";
                MoveRequest move=new MoveRequest(sx,sy,gx,gy,movetype);
 
+               try {
+                Client.makeMove(IpAddress, LocalPlayer, move);
+            } catch (IOException | InterruptedException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            }
             }
             
         });
 
+
+        attack.addActionListener(new ActionListener(){
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+               frame.add(sX);
+               frame.add(sY);
+               frame.add(gX);
+               frame.add(gY);
+
+
+               int sx=Integer.parseInt(sX.getText());
+               int sy=Integer.parseInt(sY.getText());
+               int gx=Integer.parseInt(gX.getText());
+               int gy=Integer.parseInt(gY.getText());
+               String movetype="attack";
+               MoveRequest move=new MoveRequest(sx,sy,gx,gy,movetype);
+
+               try {
+                Client.makeMove(IpAddress, LocalPlayer, move);
+            } catch (IOException | InterruptedException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            }
+            }
+            
+        });
+
+
+        end.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int sx=0;
+                int sy=0;
+                int gx=0;
+                int gy=0;
+                String movetype="end";
+                MoveRequest move=new MoveRequest(sx, sy, gx, gy, movetype);
+                try {
+                    Client.makeMove(IpAddress, LocalPlayer, move);
+                } catch (IOException | InterruptedException e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
+                }
+            }
+            
+        });
 
         }
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
