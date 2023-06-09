@@ -21,6 +21,12 @@ public class LoadFrame extends JFrame
     
     GameFrame game;
 
+
+    /**
+    *Contructor for load frame
+    * makes a frame, titles, text area for ip, and button
+    * has action preformer that creates the game frame from the ip
+    * */
     public LoadFrame()
     {
         //makes frame

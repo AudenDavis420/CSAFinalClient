@@ -27,7 +27,7 @@ public class Client
             .build()
             .send(request, BodyHandlers.ofString());
 
-            return gson.fromJson(response.body(), Player.class);
+            return gson.fromJson(response.body(), Player.class);//returns the Player for the joinGame request
     }
 
 
@@ -44,7 +44,7 @@ public class Client
             .build()
             .send(request, BodyHandlers.ofString());
 
-            return gson.fromJson(response.body(), Answer.class);
+            return gson.fromJson(response.body(), Answer.class);//returns the Answer for the startGame request
     }
 
     //getMap HttpResponse
@@ -60,7 +60,7 @@ public class Client
             .build()
             .send(request, BodyHandlers.ofString());
 
-            return gson.fromJson(response.body(), Game.class);
+            return gson.fromJson(response.body(), Game.class);//returns the game for the getMap request
     }
 
     //makeMove HttpResponse
@@ -79,7 +79,7 @@ public class Client
             .build()
             .send(request, BodyHandlers.ofString());
 
-            return gson.fromJson(response.body(), Answer.class);
+            return gson.fromJson(response.body(), Answer.class); //returns the answer for the makeMove request
     }
 
 
