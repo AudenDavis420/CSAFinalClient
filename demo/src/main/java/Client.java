@@ -45,6 +45,7 @@ public class Client
 
     public static Game getMap(String ip, Player player) throws IOException, InterruptedException
     {
+        System.out.println("http://"+ ip + ":8080/gameMap/" + player.getPlayerID());
         HttpRequest request = HttpRequest.newBuilder()
             .uri(URI.create("http://"+ "localhost"+ ":8080/gameMap/" + player.getPlayerID()))
             .build();

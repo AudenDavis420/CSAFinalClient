@@ -24,7 +24,7 @@ public class LoadFrame extends JFrame
 
         LoadFrame frame = this;
         
-        this.setBounds(0, 0, 500, 500);
+        this.setBounds(-1000, 0, 500, 500);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
         this.setLayout(null);
@@ -73,7 +73,7 @@ public class LoadFrame extends JFrame
                 }
                 
                 if (isGood){frame.setVisible(false); try {
-                    game = new GameFrame(player, response.getText());
+                    game = new GameFrame(player, textArea.getText());
                 } catch (IOException | InterruptedException e1) {
                     
                     e1.printStackTrace();
