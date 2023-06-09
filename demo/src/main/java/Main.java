@@ -7,7 +7,7 @@ public class Main
     public static void main(String[] args) throws IOException, InterruptedException 
     {
         
-       LoadFrame loadFrame = new LoadFrame();
+       LoadFrame loadFrame = new LoadFrame();// creates load frame
         
     }
 }

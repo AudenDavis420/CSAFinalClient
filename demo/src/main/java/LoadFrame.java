@@ -21,37 +21,41 @@ public class LoadFrame extends JFrame
 
     public LoadFrame()
     {
-
+        //makes frame
         LoadFrame frame = this;
-        
         this.setBounds(0, 0, 500, 500);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
         this.setLayout(null);
 
+        //creates title
         JLabel title = new JLabel("Clash of Pixels",SwingConstants.CENTER);
         title.setBounds(0, 70, 500, 30);
         
+        //creats ip label
         JLabel textTitle = new JLabel("IP Address:",SwingConstants.LEFT);
         textTitle.setBounds(100, 100, 300, 30);
         
 
 
+        //create text area
         JTextArea textArea = new JTextArea();
         textArea.setBounds(100, 125, 300, 30);
         textArea.setVisible(true);
     
+        //creates error label
         JLabel response = new JLabel("",SwingConstants.CENTER);
         response.setVisible(true);
         response.setBounds(100, 250, 300, 30);
         
         
         
-
+        // creates join button
         JButton joinButton = new JButton();
         joinButton.setBounds(200, 200, 100, 40);
         joinButton.setText("Join Game");
 
+        //creates action listener
         joinButton.addActionListener(new ActionListener(){
 
             
@@ -61,9 +65,9 @@ public class LoadFrame extends JFrame
                 Player player = null;
                 try {
                     
-                    player = Client.joinGame(textArea.getText());
+                    player = Client.joinGame(textArea.getText());//makes joinCall to the server
                 } 
-                catch (Exception exception) 
+                catch (Exception exception) // returns error message
                 {
                     
                     response.setText("invalid ip");
@@ -73,7 +77,7 @@ public class LoadFrame extends JFrame
                 }
                 
                 if (isGood){frame.setVisible(false); try {
-                    game = new GameFrame(player, response.getText());
+                    game = new GameFrame(player, response.getText()); //creates game
                 } catch (IOException | InterruptedException e1) {
                     
                     e1.printStackTrace();
@@ -83,7 +87,7 @@ public class LoadFrame extends JFrame
             
         });
 
-        this.add(response);
+        this.add(response); //sets up Jframe
         this.add(textTitle);
         this.add(textArea);
         this.add(title);

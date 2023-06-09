@@ -11,8 +11,10 @@ import GameResources.*;
 
 public class Client 
 {
-
+    //makes gson parser
     private static Gson gson = new Gson();
+
+    //join HttpResponse
     public static Player joinGame(String ip) throws IOException, InterruptedException
     {
         HttpRequest request = HttpRequest.newBuilder()
@@ -28,6 +30,8 @@ public class Client
             return gson.fromJson(response.body(), Player.class);
     }
 
+
+    //startGame HttpResponse
     public static Answer startGame(String ip, Player player) throws IOException, InterruptedException
     {
         HttpRequest request = HttpRequest.newBuilder()
@@ -43,6 +47,7 @@ public class Client
             return gson.fromJson(response.body(), Answer.class);
     }
 
+    //getMap HttpResponse
     public static Game getMap(String ip, Player player) throws IOException, InterruptedException
     {
         HttpRequest request = HttpRequest.newBuilder()
@@ -58,6 +63,7 @@ public class Client
             return gson.fromJson(response.body(), Game.class);
     }
 
+    //makeMove HttpResponse
     public static Answer makeMove(String ip, Player player, MoveRequest moveRequest) throws IOException, InterruptedException
     {
         HttpRequest request = HttpRequest.newBuilder()
