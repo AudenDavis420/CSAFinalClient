@@ -12,9 +12,10 @@ import java.awt.event.ActionEvent;
 import GameResources.*;
 
 //@Author David 
-/*the following is the GameFrame
+/**
+ * the following is the GameFrame
  * which loads after the game is started
- * and runs until the game is over.  
+ * and runs until the game is over. 
  */
 public class GameFrame extends JFrame
 {
